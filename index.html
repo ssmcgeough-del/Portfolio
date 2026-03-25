@@ -57,7 +57,7 @@
     }
 
     .nav-logo img {
-      height: 36px;
+      height: 46px;
       width: auto;
       display: block;
     }
@@ -78,6 +78,18 @@
     }
 
     .nav-links a:hover { color: var(--navy); }
+
+    .nav-cta-ghost {
+      border: 1.5px solid var(--accent) !important;
+      color: var(--accent) !important;
+      padding: 7px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.2s !important;
+      background: transparent !important;
+    }
+
+    .nav-cta-ghost:hover { background: var(--accent-light) !important; }
 
     .nav-cta {
       background: var(--accent) !important;
@@ -841,7 +853,8 @@
       <li><a href="#services">Services</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact" class="nav-cta">Book a Call</a></li>
+      <li><a href="https://ssgadvisory.io" class="nav-cta-ghost" target="_blank">See it in action</a></li>
+      <li><a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2F_ABY3r3knpo19dFngiJx-IMv-BpzWoOQwWJpx6VSkNz5YQcAMuJWHIX8GIr4gO-LYkrajczt" class="nav-cta" target="_blank">Book a Call</a></li>
     </ul>
   </nav>
 
@@ -852,7 +865,7 @@
       <h1>Sabrina<br/>Sykes-<em>Gelder</em></h1>
       <p class="hero-sub">I spent 9+ years inside enterprise SaaS helping businesses get real value from their tech. Now I build AI employees for consultants and service businesses — the kind of systems I wish existed when I was on the other side of the table.</p>
       <div class="hero-actions">
-        <a href="https://api.leadconnectorhq.com/widget/bookings/outbound-ssg" class="btn-primary" target="_blank">Book a Strategy Call →</a>
+        <a href="https://ssgadvisory.io" class="btn-primary" target="_blank">See it in action →</a>
         <a href="#projects" class="btn-secondary">See My Work</a>
       </div>
     </div>
@@ -970,6 +983,11 @@
           <div class="service-replaces">The starting point for most clients</div>
         </div>
       </div>
+
+      <div style="text-align:center; margin-top:48px;">
+        <p style="color:var(--text-muted); font-size:15px; margin-bottom:20px;">Not sure where to start? See the AI employees in action before booking anything.</p>
+        <a href="https://ssgadvisory.io" class="btn-primary" target="_blank">See it in action →</a>
+      </div>
     </section>
   </div>
 
@@ -985,7 +1003,7 @@
       <div style="background:var(--navy); padding:28px 36px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
         <div>
           <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal);margin-bottom:6px;">SSG Advisory · AI Audit Report</div>
-          <div style="font-size:20px;font-weight:700;color:white;font-family:'Playfair Display',serif;">Sample Client: Independent HR Consultant</div>
+          <div style="font-size:20px;font-weight:700;color:white;font-family:'Playfair Display',serif;">Sample Client: Independent Operations Advisor</div>
         </div>
         <div style="text-align:right;">
           <div style="font-size:12px;color:rgba(255,255,255,0.5);">Report completed</div>
@@ -1175,7 +1193,6 @@
           <ul class="timeline-bullets">
             <li>Designs and deploys AI employee systems for consultants and service businesses — AI Sales Rep, AI Influencer, and AI Customer Success.</li>
             <li>Builds and tests all systems in SSG Advisory's own operations before recommending them to clients.</li>
-            <li>Completing AI Employee certification through Isabella Bedoya's AI Employee Bootcamp, 2026.</li>
           </ul>
         </div>
 
@@ -1210,7 +1227,7 @@
           <ul class="timeline-bullets">
             <li>Managed a $1.6M book of 8 strategic HR tech accounts, achieving 97% retention and $400K in expansion revenue.</li>
             <li>Retained a $188K ARR at-risk account by reframing conversations around business outcomes rather than product features.</li>
-            <li>Led executive business reviews with C-level stakeholders and rebuilt company-wide templates for onboarding and quarterly reviews.</li>
+            <li>Led executive business reviews with C-level stakeholders; introduced a company-wide success plan template and redesigned the business review and client introduction templates.</li>
             <li>Coached peers on shifting from reactive support to strategic, business-led conversations with senior client contacts.</li>
           </ul>
         </div>
@@ -1245,6 +1262,7 @@
       <div style="margin-top: 56px;">
         <div class="section-label">Recognition &amp; Credentials</div>
         <div class="awards-grid">
+          <!-- Awards -->
           <div class="award-card">
             <div class="award-badge">🏆</div>
             <div>
@@ -1259,6 +1277,7 @@
               <p>The Access Group · 2017</p>
             </div>
           </div>
+          <!-- Education -->
           <div class="award-card">
             <div class="award-badge">🎓</div>
             <div>
@@ -1266,6 +1285,7 @@
               <p>CIPD, United Kingdom</p>
             </div>
           </div>
+          <!-- Certifications -->
           <div class="award-card">
             <div class="award-badge">🤖</div>
             <div>
@@ -1274,17 +1294,18 @@
             </div>
           </div>
           <div class="award-card">
-            <div class="award-badge">🇨🇦</div>
-            <div>
-              <h4>Government of Canada Reliability Clearance</h4>
-              <p>Active</p>
-            </div>
-          </div>
-          <div class="award-card">
             <div class="award-badge">🧠</div>
             <div>
               <h4>AI Employee Certification</h4>
               <p>Isabella Bedoya / IzzyGPT · 2026</p>
+            </div>
+          </div>
+          <!-- Security Clearances -->
+          <div class="award-card">
+            <div class="award-badge">🇨🇦</div>
+            <div>
+              <h4>Government of Canada Reliability Clearance</h4>
+              <p>Active</p>
             </div>
           </div>
           <div class="award-card">
@@ -1435,15 +1456,15 @@
       <h2>Ready to Meet Your First AI Employee?</h2>
       <p>Book a 20-minute strategy call. We'll look at your business, identify the highest-leverage place for AI, and I'll tell you exactly what a build would involve — and what it would replace.</p>
       <div class="cta-actions">
-        <a href="https://api.leadconnectorhq.com/widget/bookings/outbound-ssg" class="btn-cta" target="_blank">Book a Strategy Call →</a>
-        <a href="https://ssgadvisory.io" class="btn-cta-ghost" target="_blank">Visit ssgadvisory.io</a>
+        <a href="https://ssgadvisory.io" class="btn-cta" target="_blank">See it in action →</a>
+        <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2F_ABY3r3knpo19dFngiJx-IMv-BpzWoOQwWJpx6VSkNz5YQcAMuJWHIX8GIr4gO-LYkrajczt" class="btn-cta-ghost" target="_blank">Ready to book your service →</a>
       </div>
     </div>
   </div>
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2026 Sabrina Sykes-Gelder · <a href="https://ssgadvisory.io" target="_blank">SSG Advisory</a> · Gatineau, Quebec, Canada · <a href="mailto:ssmcgeough@gmail.com">ssmcgeough@gmail.com</a></p>
+    <p>© 2026 Sabrina Sykes-Gelder · <a href="https://ssgadvisory.io" target="_blank">SSG Advisory</a> · Gatineau, Quebec, Canada · <a href="mailto:sabrina@ssgadvisory.io">sabrina@ssgadvisory.io</a></p>
   </footer>
 
 </body>
