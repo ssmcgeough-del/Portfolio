@@ -8,1464 +8,549 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --navy: #0f1f3d;
-      --navy-mid: #1a3260;
-      --accent: #2563eb;
-      --accent-light: #dbeafe;
-      --teal: #0ea5e9;
-      --white: #ffffff;
-      --off-white: #f8fafc;
-      --gray-100: #f1f5f9;
-      --gray-200: #e2e8f0;
-      --gray-400: #94a3b8;
-      --gray-600: #475569;
-      --gray-800: #1e293b;
-      --text: #1e293b;
-      --text-muted: #64748b;
-      --radius: 12px;
-      --radius-lg: 20px;
-      --shadow: 0 4px 24px rgba(15,31,61,0.08);
-      --shadow-lg: 0 12px 48px rgba(15,31,61,0.14);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    html { scroll-behavior: smooth; }
-
-    body {
+    html, body {
       font-family: 'Inter', sans-serif;
-      color: var(--text);
-      background: var(--white);
+      background: #f8f7f4;
+      color: #334155;
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
     }
 
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--gray-200);
-      padding: 0 48px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-logo img {
-      height: 65px;
-      width: auto;
-      display: block;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-      align-items: center;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--gray-600);
-      font-size: 14px;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--navy); }
-
-    .nav-cta-ghost {
-      border: 1.5px solid var(--accent) !important;
-      color: var(--accent) !important;
-      padding: 7px 18px;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: all 0.2s !important;
-      background: transparent !important;
-    }
-
-    .nav-cta-ghost:hover { background: var(--accent-light) !important; }
-
-    .nav-cta {
-      background: var(--accent) !important;
-      color: var(--white) !important;
-      padding: 8px 20px;
-      border-radius: 8px;
-      transition: background 0.2s !important;
-    }
-
-    .nav-cta:hover { background: var(--navy-mid) !important; }
-
-    /* HERO */
-    .hero {
-      padding: 130px 48px 100px;
-      max-width: 1140px;
+    .container {
+      max-width: 1200px;
       margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: white;
+      padding: 80px 0 60px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .hero-wrapper {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 72px;
+      grid-template-columns: 280px 1fr;
+      gap: 80px;
       align-items: center;
     }
 
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--accent-light);
-      color: var(--accent);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1px;
+    .hero-image {
+      width: 280px;
+      aspect-ratio: 4 / 5;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-content h2 {
+      font-size: 12px;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 999px;
+      color: #64748b;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #0f172a;
       margin-bottom: 24px;
+      line-height: 1.2;
     }
 
-    .hero-eyebrow::before {
-      content: '';
-      width: 6px; height: 6px;
-      background: var(--accent);
-      border-radius: 50%;
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(42px, 5vw, 60px);
-      line-height: 1.08;
-      color: var(--navy);
+    .hero-content p {
+      font-size: 16px;
+      color: #334155;
       margin-bottom: 20px;
-      letter-spacing: -1.5px;
+      line-height: 1.7;
     }
 
-    .hero h1 em { font-style: normal; color: var(--accent); }
-
-    .hero-sub {
-      font-size: 17px;
-      color: var(--text-muted);
-      line-height: 1.75;
-      margin-bottom: 36px;
-      max-width: 500px;
+    .hero-content p:last-of-type {
+      margin-bottom: 32px;
     }
 
     .hero-actions {
       display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
     }
 
     .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--accent);
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      padding: 14px 28px;
-      border-radius: 10px;
-      transition: background 0.2s, transform 0.15s;
+      background: #0f172a;
+      color: white;
     }
 
-    .btn-primary:hover { background: var(--navy-mid); transform: translateY(-1px); }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      color: var(--navy);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      padding: 14px 28px;
-      border-radius: 10px;
-      border: 2px solid var(--gray-200);
-      transition: border-color 0.2s, background 0.2s;
+    .btn-primary:hover {
+      background: #1e293b;
     }
 
-    .btn-secondary:hover { border-color: var(--navy); background: var(--gray-100); }
-
-    /* HERO CARD */
-    .hero-card {
-      background: var(--navy);
-      border-radius: var(--radius-lg);
-      padding: 40px;
-      color: var(--white);
-      box-shadow: var(--shadow-lg);
-      position: relative;
-      overflow: hidden;
+    .btn-ghost {
+      background: white;
+      color: #0f172a;
+      border: 1px solid #cbd5e1;
     }
 
-    .hero-card::before {
-      content: '';
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 220px; height: 220px;
-      background: var(--accent);
-      opacity: 0.12;
-      border-radius: 50%;
+    .btn-ghost:hover {
+      background: #f8fafc;
+      border-color: #94a3b8;
     }
 
-    .hero-card-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 22px;
-    }
-
-    .hero-stats {
+    /* STATS SECTION */
+    .stats {
+      padding: 60px 0;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-bottom: 24px;
-    }
-
-    .hero-stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 38px;
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-
-    .hero-stat-desc {
-      font-size: 12px;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.4;
-    }
-
-    .hero-divider {
-      border: none;
-      border-top: 1px solid rgba(255,255,255,0.12);
-      margin: 20px 0;
-    }
-
-    .hero-services-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      color: rgba(255,255,255,0.45);
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .hero-service-pill {
-      display: inline-block;
-      background: rgba(255,255,255,0.1);
-      color: rgba(255,255,255,0.85);
-      font-size: 12px;
-      font-weight: 500;
-      padding: 5px 12px;
-      border-radius: 999px;
-      margin: 3px 3px 3px 0;
-    }
-
-    /* SECTION COMMONS */
-    .section {
-      padding: 80px 48px;
-      max-width: 1140px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 3.5vw, 42px);
-      color: var(--navy);
-      line-height: 1.15;
-      margin-bottom: 14px;
-      letter-spacing: -0.5px;
-    }
-
-    .section-desc {
-      font-size: 17px;
-      color: var(--text-muted);
-      line-height: 1.75;
-      max-width: 640px;
-    }
-
-    .section-divider {
-      border: none;
-      border-top: 1px solid var(--gray-200);
-      max-width: 1140px;
-      margin: 0 auto;
-    }
-
-    /* ABOUT */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 60px;
-      align-items: start;
-      margin-top: 48px;
-    }
-
-    .about-text p {
-      font-size: 16px;
-      color: var(--gray-600);
-      line-height: 1.85;
-      margin-bottom: 18px;
-    }
-
-    .about-text strong { color: var(--navy); font-weight: 600; }
-
-    .about-right {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .highlight-card {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      padding: 18px 20px;
-      background: var(--off-white);
-      border-radius: var(--radius);
-      border: 1px solid var(--gray-200);
-    }
-
-    .highlight-icon {
-      width: 38px; height: 38px;
-      background: var(--accent-light);
-      border-radius: 9px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: 17px;
-    }
-
-    .highlight-card h4 {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 3px;
-    }
-
-    .highlight-card p {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* SERVICES */
-    .services-bg {
-      background: var(--off-white);
-      border-top: 1px solid var(--gray-200);
-      border-bottom: 1px solid var(--gray-200);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 22px;
-      margin-top: 48px;
-    }
-
-    .service-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-lg);
-      padding: 30px 26px;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-
-    .service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
-
-    .service-card.featured {
-      background: var(--navy);
-      border-color: var(--navy);
-    }
-
-    .service-icon { font-size: 26px; margin-bottom: 14px; }
-
-    .service-card h3 {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 9px;
-    }
-
-    .service-card.featured h3 { color: var(--white); }
-
-    .service-card p {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.65;
-      margin-bottom: 18px;
-    }
-
-    .service-card.featured p { color: rgba(255,255,255,0.65); }
-
-    .service-price {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--accent);
-      background: var(--accent-light);
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 999px;
-    }
-
-    .service-card.featured .service-price { color: var(--navy); background: rgba(255,255,255,0.92); }
-
-    .service-replaces {
-      font-size: 12px;
-      color: var(--gray-400);
-      margin-top: 7px;
-    }
-
-    .service-card.featured .service-replaces { color: rgba(255,255,255,0.4); }
-
-    /* PROJECTS */
-    .projects-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 36px;
-      margin-top: 48px;
-    }
-
-    .project-card {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 48px;
-      align-items: start;
-      padding: 40px;
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-    }
-
-    .project-meta-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-
-    .project-card h3 {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 10px;
-    }
-
-    .project-card-desc {
-      font-size: 15px;
-      color: var(--text-muted);
-      line-height: 1.75;
-      margin-bottom: 20px;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-    }
-
-    .tag {
-      font-size: 12px;
-      font-weight: 500;
-      background: var(--gray-100);
-      color: var(--gray-600);
-      padding: 4px 11px;
-      border-radius: 999px;
-      border: 1px solid var(--gray-200);
-    }
-
-    .project-outcomes {
-      display: flex;
-      flex-direction: column;
-      gap: 11px;
-      background: var(--off-white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius);
-      padding: 22px;
-    }
-
-    .project-outcomes-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: var(--navy);
-      margin-bottom: 4px;
-    }
-
-    .outcome-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 9px;
-      font-size: 13px;
-      color: var(--gray-600);
-      line-height: 1.5;
-    }
-
-    .outcome-item::before {
-      content: '✓';
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 12px;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    /* EXPERIENCE */
-    .experience-bg {
-      background: var(--off-white);
-      border-top: 1px solid var(--gray-200);
-      border-bottom: 1px solid var(--gray-200);
-    }
-
-    .timeline {
-      margin-top: 48px;
-      position: relative;
-      padding-left: 34px;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 7px; top: 10px; bottom: 0;
-      width: 2px;
-      background: var(--gray-200);
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 44px;
-    }
-
-    .timeline-item:last-child { margin-bottom: 0; }
-
-    .timeline-dot {
-      position: absolute;
-      left: -30px; top: 8px;
-      width: 14px; height: 14px;
-      background: var(--accent);
-      border-radius: 50%;
-      border: 3px solid var(--white);
-      box-shadow: 0 0 0 2px var(--accent);
-    }
-
-    .timeline-dot.current { background: var(--teal); box-shadow: 0 0 0 2px var(--teal); }
-
-    .timeline-date {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 5px;
-    }
-
-    .timeline-item h3 {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 2px;
-    }
-
-    .timeline-company {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-
-    .timeline-bullets {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .timeline-bullets li {
-      font-size: 14px;
-      color: var(--gray-600);
-      line-height: 1.6;
-      padding-left: 16px;
-      position: relative;
-    }
-
-    .timeline-bullets li::before {
-      content: '·';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 18px;
-      line-height: 1.2;
-    }
-
-    /* AWARDS & CERTS */
-    .awards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
-    }
-
-    .award-card {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      padding: 20px 22px;
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius);
-    }
-
-    .award-badge {
-      font-size: 22px;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .award-card h4 {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 3px;
-    }
-
-    .award-card p {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    /* TESTIMONIALS */
-    .testimonials-bg {
-      background: var(--navy);
-      border-top: 1px solid var(--gray-200);
-    }
-
-    .testimonials-section {
-      padding: 80px 48px;
-      max-width: 1140px;
-      margin: 0 auto;
-    }
-
-    .testimonials-section .section-label { color: var(--teal); }
-
-    .testimonials-section .section-title { color: var(--white); }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 24px;
-      margin-top: 48px;
     }
 
-    .testimonial-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--radius-lg);
-      padding: 30px;
-    }
-
-    .testimonial-quote {
-      font-size: 15px;
-      color: rgba(255,255,255,0.8);
-      line-height: 1.75;
-      margin-bottom: 22px;
-      font-style: italic;
-    }
-
-    .testimonial-author {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .testimonial-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--white);
-    }
-
-    .testimonial-role {
-      font-size: 12px;
-      color: rgba(255,255,255,0.45);
-    }
-
-    /* SKILLS */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
-      margin-top: 48px;
-    }
-
-    .skill-group {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius);
-      padding: 26px;
-    }
-
-    .skill-group h4 {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: var(--navy);
-      margin-bottom: 14px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--gray-200);
-    }
-
-    .skill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-    }
-
-    .skill-pill {
-      font-size: 13px;
-      font-weight: 500;
-      background: var(--off-white);
-      color: var(--gray-800);
-      border: 1px solid var(--gray-200);
-      padding: 5px 13px;
-      border-radius: 999px;
-    }
-
-    /* CTA */
-    .cta-section {
-      background: linear-gradient(135deg, var(--accent) 0%, var(--navy-mid) 100%);
-      padding: 80px 48px;
-    }
-
-    .cta-inner {
-      max-width: 700px;
-      margin: 0 auto;
+    .stat-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 28px;
+      padding: 40px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
       text-align: center;
     }
 
-    .cta-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 4vw, 44px);
-      color: var(--white);
+    .stat-card h3 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #2563eb;
+      margin-bottom: 12px;
+    }
+
+    .stat-card p {
+      font-size: 14px;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* TWO PANELS SECTION */
+    .two-panels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      padding: 60px 0;
+    }
+
+    .panel {
+      border-radius: 28px;
+      padding: 48px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .panel-light {
+      background: white;
+    }
+
+    .panel-dark {
+      background: #0f172a;
+      color: white;
+      border: none;
+    }
+
+    .panel h2 {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #64748b;
       margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .panel-dark h2 {
+      color: #94a3b8;
+    }
+
+    .panel h3 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 32px;
       line-height: 1.2;
     }
 
-    .cta-section p {
-      font-size: 17px;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.75;
-      margin-bottom: 40px;
+    .panel-dark h3 {
+      color: white;
+    }
+
+    .panel p {
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 18px;
+      color: #334155;
+    }
+
+    .panel-dark p {
+      color: #cbd5e1;
+    }
+
+    .benefits-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .benefit-item h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .benefit-item p {
+      font-size: 14px;
+      color: #cbd5e1;
+      margin: 0;
+    }
+
+    /* SELECTED WORK SECTION */
+    .selected-work {
+      padding: 60px 0;
+    }
+
+    .selected-work h2 {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .selected-work h3 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 48px;
+    }
+
+    .project-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .project-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 28px;
+      padding: 40px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    .project-card h4 {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .project-card h5 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 16px;
+    }
+
+    .project-card p {
+      font-size: 15px;
+      color: #334155;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .project-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    /* CTA PANEL */
+    .cta-panel {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 28px;
+      padding: 48px;
+      margin: 60px 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .cta-panel h2 {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .cta-panel h3 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 32px;
     }
 
     .cta-actions {
       display: flex;
-      gap: 16px;
       justify-content: center;
-      flex-wrap: wrap;
+      gap: 16px;
     }
 
-    .btn-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--white);
-      color: var(--navy);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 15px;
-      padding: 15px 32px;
-      border-radius: 10px;
-      transition: background 0.2s, transform 0.15s;
+    /* CLOSING SECTION */
+    .closing-section {
+      background: #0f172a;
+      border-radius: 28px;
+      padding: 48px;
+      margin-bottom: 60px;
+      color: white;
     }
 
-    .btn-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
-
-    .btn-cta-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      color: rgba(255,255,255,0.9);
-      text-decoration: none;
+    .closing-section h2 {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 16px;
       font-weight: 600;
-      font-size: 15px;
-      padding: 15px 32px;
-      border-radius: 10px;
-      border: 2px solid rgba(255,255,255,0.3);
-      transition: border-color 0.2s;
     }
 
-    .btn-cta-ghost:hover { border-color: rgba(255,255,255,0.8); }
+    .closing-section h3 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: white;
+    }
+
+    .closing-section p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #cbd5e1;
+    }
 
     /* FOOTER */
     footer {
-      background: var(--gray-800);
-      color: rgba(255,255,255,0.45);
+      background: white;
+      border-top: 1px solid #e2e8f0;
+      padding: 40px 0;
       text-align: center;
-      padding: 28px 40px;
-      font-size: 13px;
     }
 
-    footer a { color: rgba(255,255,255,0.65); text-decoration: none; }
-    footer a:hover { color: var(--white); }
+    footer p {
+      font-size: 13px;
+      color: #64748b;
+    }
 
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      nav { padding: 0 24px; }
-      .hero { grid-template-columns: 1fr; gap: 40px; padding: 100px 24px 60px; }
-      .about-grid { grid-template-columns: 1fr; gap: 32px; }
-      .project-card { grid-template-columns: 1fr; gap: 24px; }
-      .section { padding: 60px 24px; }
-      .testimonials-section { padding: 60px 24px; }
-      .cta-section { padding: 60px 24px; }
-      .nav-links li:not(:last-child) { display: none; }
+    footer a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .hero-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .two-panels {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content h1 {
+        font-size: 32px;
+      }
+
+      .project-actions {
+        flex-wrap: wrap;
+      }
     }
   </style>
 </head>
 <body>
-
-  <!-- NAV -->
-  <nav>
-    <div class="nav-logo"><img src="ssg-logo.png" alt="SSG Advisory" /></div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="https://ssgadvisory.io" class="nav-cta-ghost" target="_blank">See it in action</a></li>
-      <li><a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2F_ABY3r3knpo19dFngiJx-IMv-BpzWoOQwWJpx6VSkNz5YQcAMuJWHIX8GIr4gO-LYkrajczt" class="nav-cta" target="_blank">Book a Call</a></li>
-    </ul>
-  </nav>
-
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-text">
-      <div class="hero-eyebrow">Founder · SSG Advisory · Gatineau, QC</div>
-      <h1>Sabrina<br/>Sykes-<em>Gelder</em></h1>
-      <p class="hero-sub">I spent 9+ years inside enterprise SaaS helping businesses get real value from their tech. Now I build AI employees for consultants and service businesses — the kind of systems I wish existed when I was on the other side of the table.</p>
-      <div class="hero-actions">
-        <a href="https://ssgadvisory.io" class="btn-primary" target="_blank">See it in action →</a>
-        <a href="#projects" class="btn-secondary">See My Work</a>
-      </div>
-    </div>
-
-    <div class="hero-card">
-      <div class="hero-card-label">SSG Advisory at a Glance</div>
-      <div class="hero-stats">
-        <div>
-          <div class="hero-stat-num">9+</div>
-          <div class="hero-stat-desc">Years in enterprise SaaS Customer Success</div>
+    <div class="container">
+      <div class="hero-wrapper">
+        <div class="hero-image">
+          <img src="./sabrina-headshot.jpeg" alt="Sabrina Sykes-Gelder" />
         </div>
-        <div>
-          <div class="hero-stat-num">8→150+</div>
-          <div class="hero-stat-desc">CS team scaled at The Access Group — from founding cohort to full org</div>
-        </div>
-        <div>
-          <div class="hero-stat-num">95–97%</div>
-          <div class="hero-stat-desc">Consistent retention rate across all CS roles</div>
-        </div>
-        <div>
-          <div class="hero-stat-num">100%</div>
-          <div class="hero-stat-desc">Lead qualification automated before Sabrina touches it</div>
-        </div>
-      </div>
-      <hr class="hero-divider" />
-      <div class="hero-services-label">AI Employees I Build</div>
-      <span class="hero-service-pill">AI Sales Rep</span>
-      <span class="hero-service-pill">AI Influencer</span>
-      <span class="hero-service-pill">AI Customer Success</span>
-      <span class="hero-service-pill">AI Audit</span>
-    </div>
-  </section>
-
-  <hr class="section-divider" />
-
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <div class="section-label">About</div>
-    <h2 class="section-title">Why I Built SSG Advisory</h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>I'm Sabrina Sykes-Gelder, founder of <strong>SSG Advisory</strong>, based in Gatineau, Quebec. Before founding SSG Advisory, I spent over nine years working inside enterprise SaaS — managing strategic accounts, building Customer Success functions from scratch, rescuing at-risk clients, and helping businesses turn expensive software into measurable outcomes.</p>
-        <p>That career gave me something most AI consultants don't have: I've been on the <strong>client's side of the table</strong>. I know what it feels like to adopt new tech under pressure, to defend ROI to a CFO, and to be the person responsible when something doesn't deliver. That perspective shapes everything I build.</p>
-        <p>SSG Advisory exists for what I call the <strong>Invisible Expert</strong> — consultants, coaches, and small service businesses whose expertise is undeniable, but whose visibility, sales, and operations can't keep up. I build AI employees that take those functions off their plate. And every system I recommend has been <strong>tested and running in my own business first</strong>.</p>
-      </div>
-      <div class="about-right">
-        <div class="highlight-card">
-          <div class="highlight-icon">🎯</div>
-          <div>
-            <h4>Practitioner, Not Just Advisor</h4>
-            <p>Every AI system I build for clients runs in SSG Advisory first. No untested recommendations.</p>
-          </div>
-        </div>
-        <div class="highlight-card">
-          <div class="highlight-icon">🤝</div>
-          <div>
-            <h4>Deep CS Roots</h4>
-            <p>9+ years managing enterprise SaaS accounts means I understand what makes clients actually succeed with new technology.</p>
-          </div>
-        </div>
-        <div class="highlight-card">
-          <div class="highlight-icon">⚙️</div>
-          <div>
-            <h4>Full-Stack AI Builder</h4>
-            <p>Voice AI, automation workflows, CRM pipelines, content systems — I design and deploy the whole stack.</p>
-          </div>
-        </div>
-        <div class="highlight-card">
-          <div class="highlight-icon">🏆</div>
-          <div>
-            <h4>Award-Winning Track Record</h4>
-            <p>Field CS Manager of the Year and Customers for Life Award recipient at The Access Group.</p>
+        <div class="hero-content">
+          <h2>About SSG Advisory</h2>
+          <h1>Practical AI, built by someone who understands the commercial reality behind it.</h1>
+          <p>I help founders and service businesses build AI employees that replace broken processes, scale teams, and keep customers happy. No smoke and mirrors—just systems that work.</p>
+          <p>After 9+ years scaling customer success at enterprise SaaS, I know what actually drives retention, efficiency, and revenue. I've used AI to solve these problems myself, and now I build solutions for others.</p>
+          <p>If you're good at what you do but can't keep carrying everything yourself, let's talk about how AI can become your next hire.</p>
+          <div class="hero-actions">
+            <a href="https://calendar.google.com/calendar/appointments/schedules/AcZss22F_ABY3r3kpgI9dnqI3x-IPM-Rps4kOQAqDJpv6V5Nk5YQCArNs_JdI1X0GJr4g0-LYKrajct" class="btn btn-primary" target="_blank">Book a call</a>
+            <a href="#selected-work" class="btn btn-ghost">View portfolio</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <hr class="section-divider" />
+  <!-- STATS -->
+  <div class="container">
+    <div class="stats">
+      <div class="stat-card">
+        <h3>9+</h3>
+        <p>Years in enterprise SaaS</p>
+      </div>
+      <div class="stat-card">
+        <h3>8 to 150+</h3>
+        <p>Customer Success team scaled</p>
+      </div>
+      <div class="stat-card">
+        <h3>95 to 97%</h3>
+        <p>Typical retention across CS roles</p>
+      </div>
+      <div class="stat-card">
+        <h3>$2.2M CAD</h3>
+        <p>Government account retained</p>
+      </div>
+    </div>
+  </div>
 
-  <!-- SERVICES -->
-  <div class="services-bg">
-    <section class="section" id="services">
-      <div class="section-label">Services</div>
-      <h2 class="section-title">AI Employees for Your Business</h2>
-      <p class="section-desc">I design and deploy AI employees that replace specific human roles in your business — scoped, priced, and built to deliver a measurable return from day one.</p>
-
-      <div class="services-grid">
-        <div class="service-card featured">
-          <div class="service-icon">📣</div>
-          <h3>AI Influencer</h3>
-          <p>Consistent LinkedIn content, newsletter, and short-form video — your voice and expertise, without the daily grind. Built and running inside my own business.</p>
-          <div class="service-price">From $37,000 CAD/yr</div>
-          <div class="service-replaces">Replaces: content writer + social media manager</div>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">📞</div>
-          <h3>AI Sales Rep</h3>
-          <p>Inbound lead qualification, objection handling, follow-up, and calendar booking — 24/7, with no human involvement required until the strategy call.</p>
-          <div class="service-price">$41,000–$58,000 CAD/yr</div>
-          <div class="service-replaces">Replaces: SDR / appointment setter</div>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🤝</div>
-          <h3>AI Customer Success</h3>
-          <p>Client onboarding, check-ins, FAQ responses, and communication touchpoints — keeping clients engaged without consuming your calendar.</p>
-          <div class="service-price">$27,000–$38,000 CAD/yr</div>
-          <div class="service-replaces">Complements your CS team to extend reach and scale impact</div>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🔍</div>
-          <h3>AI Audit</h3>
-          <p>A 2–3 hour deep dive into your business to identify where AI can eliminate bottlenecks. Full written report with ROI projections. Audit fee credited toward a full build.</p>
-          <div class="service-price">$1,400–$2,100 CAD</div>
-          <div class="service-replaces">The starting point for most clients</div>
-        </div>
+  <!-- TWO PANELS -->
+  <div class="container">
+    <div class="two-panels">
+      <div class="panel panel-light">
+        <h2>Why I built this business</h2>
+        <h3>For founders and service businesses that are good at what they do, but cannot keep carrying everything themselves.</h3>
+        <p>Most AI hype focuses on flashy demos and unrealistic claims. But real businesses need real solutions—systems that integrate into existing workflows, not replace them overnight.</p>
+        <p>I built SSG Advisory because I got tired of watching talented founders and service leaders burn out doing work that AI could handle. They have great ideas and strong teams, but they're stuck doing everything themselves.</p>
+        <p>AI should feel like practical support, not another bet-the-company decision. That's what I deliver.</p>
       </div>
 
-      <div style="text-align:center; margin-top:48px;">
-        <p style="color:var(--text-muted); font-size:15px; margin-bottom:20px;">Not sure where to start? See the AI employees in action before booking anything.</p>
-        <a href="https://ssgadvisory.io" class="btn-primary" target="_blank">See it in action →</a>
+      <div class="panel panel-dark">
+        <h2>What I bring</h2>
+        <h3>Four things that matter</h3>
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <h4>Practitioner, not just advisor</h4>
+            <p>I build and implement AI systems, not just recommend them. You get solutions tested in real environments.</p>
+          </div>
+          <div class="benefit-item">
+            <h4>Deep Customer Success roots</h4>
+            <p>I know how to scale teams, retain customers, and build systems that compound over time.</p>
+          </div>
+          <div class="benefit-item">
+            <h4>Commercial and sales credibility</h4>
+            <p>I understand the business side—revenue impact, CAC, LTV, and how AI changes unit economics.</p>
+          </div>
+          <div class="benefit-item">
+            <h4>Practical systems thinking</h4>
+            <p>I focus on automation that addresses real bottlenecks, not shiny features nobody uses.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SELECTED WORK -->
+  <div class="container">
+    <section class="selected-work" id="selected-work">
+      <h2>Featured Projects</h2>
+      <h3>Selected work</h3>
+
+      <div class="project-cards">
+        <div class="project-card">
+          <h4>AI Sales Rep</h4>
+          <h5>Two-Agent AI Sales System</h5>
+          <p>A fully autonomous AI sales system that qualifies leads, handles objections, books meetings, and follows up—24/7, with no human involvement required until the strategy call. Built for founders and service businesses that need sales but don't have the team.</p>
+          <div class="project-actions">
+            <a href="https://ssgadvisory.io" class="btn btn-primary" target="_blank">See it in action</a>
+            <a href="#" class="btn btn-ghost">See my work</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h4>AI Influencer</h4>
+          <h5>AI Content & Visibility System</h5>
+          <p>Automated content creation, distribution, and engagement system that keeps you visible to your audience without requiring daily manual work. Generates, schedules, and amplifies content across channels.</p>
+          <div class="project-actions">
+            <a href="https://ssgadvisory.io" class="btn btn-primary" target="_blank">See it in action</a>
+            <a href="#" class="btn btn-ghost">See my work</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h4>Customer Success</h4>
+          <h5>Building CS Functions That Scale</h5>
+          <p>Frameworks and playbooks for building customer success from zero—or scaling it from your current team. Covers onboarding, check-ins, renewal management, and communication workflows that keep clients engaged and reduce churn.</p>
+          <div class="project-actions">
+            <a href="https://ssgadvisory.io" class="btn btn-primary" target="_blank">See it in action</a>
+            <a href="#" class="btn btn-ghost">See my work</a>
+          </div>
+        </div>
       </div>
     </section>
   </div>
 
-  <!-- AI AUDIT MOCKUP -->
-  <section class="section" id="audit-sample">
-    <div class="section-label">Sample Output</div>
-    <h2 class="section-title">What an AI Audit Looks Like</h2>
-    <p class="section-desc">Every AI Audit delivers a written report structured around three sections. Here's a representative example of what a client receives.</p>
-
-    <div style="margin-top:48px; border:1px solid var(--gray-200); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow);">
-
-      <!-- Report header -->
-      <div style="background:var(--navy); padding:28px 36px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
-        <div>
-          <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal);margin-bottom:6px;">SSG Advisory · AI Audit Report</div>
-          <div style="font-size:20px;font-weight:700;color:white;font-family:'Playfair Display',serif;">Sample Client: Independent Operations Advisor</div>
-        </div>
-        <div style="text-align:right;">
-          <div style="font-size:12px;color:rgba(255,255,255,0.5);">Report completed</div>
-          <div style="font-size:14px;font-weight:600;color:rgba(255,255,255,0.85);">March 2026</div>
-        </div>
-      </div>
-
-      <!-- Section 1: Process Map -->
-      <div style="padding:32px 36px; border-bottom:1px solid var(--gray-200);">
-        <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;">Section 1 · Current State &amp; Bottleneck Map</div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
-          <div style="background:var(--off-white);border:1px solid var(--gray-200);border-radius:var(--radius);padding:18px;">
-            <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;">🔴 Lead follow-up</div>
-            <div style="font-size:13px;color:var(--gray-600);line-height:1.5;">Prospects emailing in with no consistent response time. Est. 6–8 hrs/week lost to manual triage and reply drafting.</div>
-          </div>
-          <div style="background:var(--off-white);border:1px solid var(--gray-200);border-radius:var(--radius);padding:18px;">
-            <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;">🔴 Content creation</div>
-            <div style="font-size:13px;color:var(--gray-600);line-height:1.5;">LinkedIn posting is ad hoc and drops off during busy client periods. Visibility suffers when revenue is highest.</div>
-          </div>
-          <div style="background:var(--off-white);border:1px solid var(--gray-200);border-radius:var(--radius);padding:18px;">
-            <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;">🟡 Client onboarding</div>
-            <div style="font-size:13px;color:var(--gray-600);line-height:1.5;">Onboarding relies on the founder's availability. No standard welcome sequence or FAQ coverage between sessions.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section 2: AI Opportunity Assessment -->
-      <div style="padding:32px 36px; border-bottom:1px solid var(--gray-200);">
-        <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;">Section 2 · AI Opportunity Assessment</div>
-        <div style="overflow-x:auto;">
-          <table style="width:100%;border-collapse:collapse;font-size:14px;">
-            <thead>
-              <tr style="background:var(--gray-100);">
-                <th style="text-align:left;padding:10px 14px;color:var(--navy);font-weight:700;border-bottom:1px solid var(--gray-200);">Opportunity</th>
-                <th style="text-align:left;padding:10px 14px;color:var(--navy);font-weight:700;border-bottom:1px solid var(--gray-200);">AI Employee Type</th>
-                <th style="text-align:left;padding:10px 14px;color:var(--navy);font-weight:700;border-bottom:1px solid var(--gray-200);">Priority</th>
-                <th style="text-align:left;padding:10px 14px;color:var(--navy);font-weight:700;border-bottom:1px solid var(--gray-200);">Est. Hours Saved/wk</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom:1px solid var(--gray-200);">
-                <td style="padding:10px 14px;color:var(--gray-600);">Inbound lead qualification &amp; booking</td>
-                <td style="padding:10px 14px;color:var(--gray-600);">AI Sales Rep</td>
-                <td style="padding:10px 14px;"><span style="background:#dcfce7;color:#166534;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;">High</span></td>
-                <td style="padding:10px 14px;color:var(--gray-600);">6–8 hrs</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--gray-200);">
-                <td style="padding:10px 14px;color:var(--gray-600);">LinkedIn content &amp; newsletter</td>
-                <td style="padding:10px 14px;color:var(--gray-600);">AI Influencer</td>
-                <td style="padding:10px 14px;"><span style="background:#dcfce7;color:#166534;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;">High</span></td>
-                <td style="padding:10px 14px;color:var(--gray-600);">4–5 hrs</td>
-              </tr>
-              <tr>
-                <td style="padding:10px 14px;color:var(--gray-600);">Client onboarding &amp; FAQ responses</td>
-                <td style="padding:10px 14px;color:var(--gray-600);">AI Customer Success</td>
-                <td style="padding:10px 14px;"><span style="background:#fef9c3;color:#854d0e;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;">Medium</span></td>
-                <td style="padding:10px 14px;color:var(--gray-600);">3–4 hrs</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Section 3: ROI Projections -->
-      <div style="padding:32px 36px;">
-        <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;">Section 3 · ROI Projections (AI Sales Rep)</div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
-          <div style="background:var(--off-white);border:1px solid var(--gray-200);border-radius:var(--radius);padding:20px;text-align:center;">
-            <div style="font-size:11px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">Conservative</div>
-            <div style="font-family:'Playfair Display',serif;font-size:32px;color:var(--navy);line-height:1;margin-bottom:6px;">2×</div>
-            <div style="font-size:12px;color:var(--text-muted);">Return on investment within 12 months</div>
-          </div>
-          <div style="background:var(--accent-light);border:1px solid var(--accent);border-radius:var(--radius);padding:20px;text-align:center;">
-            <div style="font-size:11px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Realistic</div>
-            <div style="font-family:'Playfair Display',serif;font-size:32px;color:var(--navy);line-height:1;margin-bottom:6px;">3.5×</div>
-            <div style="font-size:12px;color:var(--gray-600);">Return on investment within 12 months</div>
-          </div>
-          <div style="background:var(--off-white);border:1px solid var(--gray-200);border-radius:var(--radius);padding:20px;text-align:center;">
-            <div style="font-size:11px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">Optimistic</div>
-            <div style="font-family:'Playfair Display',serif;font-size:32px;color:var(--navy);line-height:1;margin-bottom:6px;">5×</div>
-            <div style="font-size:12px;color:var(--text-muted);">Return on investment within 12 months</div>
-          </div>
-        </div>
-        <p style="font-size:13px;color:var(--text-muted);margin-top:16px;line-height:1.6;">* Projections are based on current lead volume, average deal value, and time-to-close benchmarks provided during the audit session. Audit fee of $1,400–$2,100 CAD is credited toward a full AI Employee build.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <hr class="section-divider" />
-
-  <!-- PROJECTS -->
-  <section class="section" id="projects">
-    <div class="section-label">Case Studies</div>
-    <h2 class="section-title">What I've Built</h2>
-    <p class="section-desc">Real systems, built and deployed — in my own business and for clients. Each one solves a specific operational bottleneck that was costing time or money.</p>
-
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <div>
-          <div class="project-meta-label">SSG Advisory · AI Sales Rep</div>
-          <h3>Two-Agent AI Sales System</h3>
-          <p class="project-card-desc">Built a fully automated inbound-to-booked-call pipeline using two AI voice agents. The first agent (Grace) demos AI live on a prospect's first call — using their own website data. The second (Isabella) handles the full sales qualification conversation and closes to a calendar booking. No human involvement until the strategy call itself.</p>
-          <div class="project-tags">
-            <span class="tag">Retell AI</span>
-            <span class="tag">n8n</span>
-            <span class="tag">GoHighLevel</span>
-            <span class="tag">OpenAI</span>
-            <span class="tag">Lovable</span>
-            <span class="tag">Voice AI</span>
-          </div>
-        </div>
-        <div class="project-outcomes">
-          <div class="project-outcomes-label">Key Outcomes</div>
-          <div class="outcome-item">Full lead journey automated from form submission to booked call</div>
-          <div class="outcome-item">AI demos itself live on the first call using the prospect's own website</div>
-          <div class="outcome-item">CRM auto-updated with AI-generated call summaries after every interaction</div>
-          <div class="outcome-item">Zero SDR headcount required</div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div>
-          <div class="project-meta-label">SSG Advisory · AI Influencer</div>
-          <h3>AI Content &amp; Visibility System</h3>
-          <p class="project-card-desc">Designed and deployed an AI-powered content engine producing LinkedIn posts, newsletter content, and short-form video 3–4 times per week — in the founder's voice, without daily manual effort. Content managed in Notion, automated through a connected stack of AI and workflow tools.</p>
-          <div class="project-tags">
-            <span class="tag">HeyGen</span>
-            <span class="tag">SubMagic</span>
-            <span class="tag">BlowTado</span>
-            <span class="tag">Notion</span>
-            <span class="tag">Relay.app</span>
-            <span class="tag">n8n</span>
-          </div>
-        </div>
-        <div class="project-outcomes">
-          <div class="project-outcomes-label">Key Outcomes</div>
-          <div class="outcome-item">3–4 LinkedIn posts per week, automated</div>
-          <div class="outcome-item">AI avatar video production connected to content calendar</div>
-          <div class="outcome-item">Multi-platform distribution with no manual posting</div>
-          <div class="outcome-item">Zero content writer or social manager required</div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div>
-          <div class="project-meta-label">CS Function Design · The Access Group &amp; NuEnergy.ai</div>
-          <h3>Building CS Functions That Scale</h3>
-          <p class="project-card-desc">At The Access Group, I helped shape the CS function from the ground up — joining a team of 8 where no formal CS practice existed. As the team grew to 150+, inconsistency became the problem: new hires ramped at different speeds, account plans varied by person, and there was no shared standard for reviews or documentation. I stopped the reactive cycle and built one simple structure the whole team could use — a shared success plan template, a standard QBR format, and a clear Salesforce documentation guide, supported by walkthroughs and office hours. New hires ramped faster, handoffs improved, and leadership could trust the data again. Later, at NuEnergy.ai, I built a CS function from scratch as the first CS hire — delivering 100% retention on a $2.2M Government of Canada account.</p>
-          <div class="project-tags">
-            <span class="tag">Salesforce</span>
-            <span class="tag">HubSpot</span>
-            <span class="tag">Playbook Design</span>
-            <span class="tag">QBR Templates</span>
-            <span class="tag">Team Enablement</span>
-            <span class="tag">Government Accounts</span>
-          </div>
-        </div>
-        <div class="project-outcomes">
-          <div class="project-outcomes-label">Key Outcomes</div>
-          <div class="outcome-item">CS org scaled from 8 to 150+ with consistent standards and faster ramp times</div>
-          <div class="outcome-item">Shared success plan template, QBR format, and Salesforce guide adopted team-wide</div>
-          <div class="outcome-item">100% retention of $2.2M CAD Government of Canada account at NuEnergy.ai</div>
-          <div class="outcome-item">Reporting improved by 75% via CRM + PM infrastructure</div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <hr class="section-divider" />
-
-  <!-- EXPERIENCE -->
-  <div class="experience-bg">
-    <section class="section" id="experience">
-      <div class="section-label">Experience</div>
-      <h2 class="section-title">Career History</h2>
-
-      <div class="timeline">
-
-        <div class="timeline-item">
-          <div class="timeline-dot current"></div>
-          <div class="timeline-date">2026 – Present</div>
-          <h3>Founder &amp; AI Systems Advisor</h3>
-          <div class="timeline-company">SSG Advisory · Gatineau, Quebec</div>
-          <ul class="timeline-bullets">
-            <li>Designs and deploys AI employee systems for consultants and service businesses — AI Sales Rep, AI Influencer, and AI Customer Success.</li>
-            <li>Builds and tests all systems in SSG Advisory's own operations before recommending them to clients.</li>
-          </ul>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">Sept 2024 – Feb 2026</div>
-          <h3>Customer Success Lead</h3>
-          <div class="timeline-company">NuEnergy.ai · Ottawa, ON</div>
-          <ul class="timeline-bullets">
-            <li>Built the CS function from scratch, launching 5 company-wide playbooks and enabling 100% retention of a $2.2M CAD Government of Canada account.</li>
-            <li>Launched CRM and PM infrastructure (HubSpot, ClickUp), improving reporting by 75% and enabling faster forecasting.</li>
-            <li>Owned commercial motions including contract negotiations, renewal strategy, and expansion readiness.</li>
-          </ul>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">Jul 2023 – Apr 2024</div>
-          <h3>Partner Success Manager</h3>
-          <div class="timeline-company">Flexspring · Lévis, QC</div>
-          <ul class="timeline-bullets">
-            <li>Standardized Jira workflows and revamped internal enablement materials, boosting project visibility by 25%.</li>
-            <li>Collaborated cross-functionally to improve tracking of partner conversations and clarify external messaging.</li>
-          </ul>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">Jun 2022 – May 2023</div>
-          <h3>Senior Customer Success Manager</h3>
-          <div class="timeline-company">HiBob.io · London, UK</div>
-          <ul class="timeline-bullets">
-            <li>Managed a $1.6M book of 8 strategic HR tech accounts, achieving 97% retention and $400K in expansion revenue.</li>
-            <li>Retained a $188K ARR at-risk account by reframing conversations around business outcomes rather than product features.</li>
-            <li>Led executive business reviews with C-level stakeholders; introduced a company-wide success plan template and redesigned the business review and client introduction templates.</li>
-            <li>Coached peers on shifting from reactive support to strategic, business-led conversations with senior client contacts.</li>
-          </ul>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">Aug 2016 – Feb 2022</div>
-          <h3>Premier Customer Success Manager</h3>
-          <div class="timeline-company">The Access Group · London, UK</div>
-          <ul class="timeline-bullets">
-            <li>Owned 10 enterprise accounts totaling $3.4M USD across military, health, legal, and education sectors — 95% ARR vs. 85% company average.</li>
-            <li>Rescued a $1.2M ARR account through reset communication strategies and improved cross-team execution.</li>
-            <li>Helped scale the CS org from 8 to 150+ people by building playbooks and mentoring new CSMs.</li>
-            <li>Named Field CS Manager of the Year (2019) and Customers for Life Award recipient (2017).</li>
-          </ul>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">~2010 – 2016</div>
-          <h3>HR Director</h3>
-          <div class="timeline-company">Hospiscare · Exeter, UK</div>
-          <ul class="timeline-bullets">
-            <li>Led the HR function as a member of the Senior Management Team for six years.</li>
-            <li>Managed complex HR matters and advised leadership on strategic people decisions.</li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- AWARDS & CERTS -->
-      <div style="margin-top: 56px;">
-        <div class="section-label">Recognition &amp; Credentials</div>
-        <div class="awards-grid">
-          <!-- Awards -->
-          <div class="award-card">
-            <div class="award-badge">🏆</div>
-            <div>
-              <h4>Field CS Manager of the Year</h4>
-              <p>The Access Group · 2019</p>
-            </div>
-          </div>
-          <div class="award-card">
-            <div class="award-badge">⭐</div>
-            <div>
-              <h4>Customers for Life Award</h4>
-              <p>The Access Group · 2017</p>
-            </div>
-          </div>
-          <!-- Education -->
-          <div class="award-card">
-            <div class="award-badge">🎓</div>
-            <div>
-              <h4>BA, Human Resources Management</h4>
-              <p>CIPD, United Kingdom</p>
-            </div>
-          </div>
-          <!-- Certifications -->
-          <div class="award-card">
-            <div class="award-badge">🤖</div>
-            <div>
-              <h4>Microsoft AI Fundamentals</h4>
-              <p>Certification Completed</p>
-            </div>
-          </div>
-          <div class="award-card">
-            <div class="award-badge">🧠</div>
-            <div>
-              <h4>AI Employee Certification</h4>
-              <p>Isabella Bedoya / IzzyGPT · 2026</p>
-            </div>
-          </div>
-          <!-- Security Clearances -->
-          <div class="award-card">
-            <div class="award-badge">🇨🇦</div>
-            <div>
-              <h4>Government of Canada Reliability Clearance</h4>
-              <p>Active</p>
-            </div>
-          </div>
-          <div class="award-card">
-            <div class="award-badge">🇬🇧</div>
-            <div>
-              <h4>UK SC (Security Check) Clearance</h4>
-              <p>Previously held</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </section>
-  </div>
-
-  <!-- TESTIMONIALS -->
-  <div class="testimonials-bg">
-    <section class="testimonials-section">
-      <div class="section-label">What People Say</div>
-      <h2 class="section-title">Recommendations</h2>
-
-      <div class="testimonials-grid">
-
-        <div class="testimonial-card">
-          <p class="testimonial-quote">"One of the most dependable and high calibre Customer Success professionals I've worked with. She balances relationship management with commercial awareness exceptionally well, always focused on delivering value while protecting the wider business."</p>
-          <div class="testimonial-author">
-            <span class="testimonial-name">Kieren Milne</span>
-            <span class="testimonial-role">Professional Services Manager · Enterprise SaaS</span>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <p class="testimonial-quote">"Her external interactions with partners were always highly positive, results driven, well choreographed, and appropriately structured. She has a keen focus in building strong relationships with stakeholders by earning their trust and ensuring mutual success."</p>
-          <div class="testimonial-author">
-            <span class="testimonial-name">Scott Bartos</span>
-            <span class="testimonial-role">Strategic Alliances and Partnerships</span>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <p class="testimonial-quote">"Sabrina's depth of what CS means goes beyond just delivering a great customer partnership. She epitomises the mindset needed to truly be the customer advocate — understanding their goals, strategies and challenges, and how to demonstrate value continually."</p>
-          <div class="testimonial-author">
-            <span class="testimonial-name">Ian Ellahee</span>
-            <span class="testimonial-role">EMEA Director, Renewals · Nintex</span>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <p class="testimonial-quote">"Sabrina consistently went above and beyond to understand our unique business needs and proactively addressed any challenges. Her strong analytical skills were instrumental in identifying opportunities for process improvements and optimizing our workflows."</p>
-          <div class="testimonial-author">
-            <span class="testimonial-name">Paul Ioan Albu</span>
-            <span class="testimonial-role">Head of HR Operations · Ebury (HiBob client)</span>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <p class="testimonial-quote">"The feedback from both her customer portfolio and colleagues was consistently glowing. Sabrina is one of the most diligent, hard working and fun people I've had the pleasure of working with."</p>
-          <div class="testimonial-author">
-            <span class="testimonial-name">Frank Hayes</span>
-            <span class="testimonial-role">CS Team Manager · The Access Group</span>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <p class="testimonial-quote">"An accomplished HR Director and a digital whiz. She led the HR function and was a member of the Senior Management Team. She is an extremely conscientious person and always went the extra mile to help and support colleagues."</p>
-          <div class="testimonial-author">
-            <span class="testimonial-name">Glynis Atherton</span>
-            <span class="testimonial-role">CEO · Hospiscare (retired)</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-  </div>
-
-  <!-- SKILLS -->
-  <section class="section" id="skills">
-    <div class="section-label">Skills &amp; Tools</div>
-    <h2 class="section-title">The Full Stack</h2>
-    <p class="section-desc">From enterprise CRMs to self-hosted AI infrastructure — I work across the full range of tools that modern service businesses need.</p>
-
-    <div class="skills-grid">
-      <div class="skill-group">
-        <h4>AI &amp; Voice</h4>
-        <div class="skill-list">
-          <span class="skill-pill">Retell AI</span>
-          <span class="skill-pill">OpenAI</span>
-          <span class="skill-pill">Claude (Anthropic)</span>
-          <span class="skill-pill">Gemini</span>
-          <span class="skill-pill">HeyGen</span>
-          <span class="skill-pill">AI Prompt Engineering</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h4>Automation</h4>
-        <div class="skill-list">
-          <span class="skill-pill">n8n (self-hosted)</span>
-          <span class="skill-pill">Relay.app</span>
-          <span class="skill-pill">Webhook Design</span>
-          <span class="skill-pill">API Integration</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h4>CRM &amp; Sales Tech</h4>
-        <div class="skill-list">
-          <span class="skill-pill">GoHighLevel</span>
-          <span class="skill-pill">HubSpot</span>
-          <span class="skill-pill">Salesforce</span>
-          <span class="skill-pill">ChurnZero</span>
-          <span class="skill-pill">Pipeline Design</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h4>Content &amp; Visibility</h4>
-        <div class="skill-list">
-          <span class="skill-pill">SubMagic</span>
-          <span class="skill-pill">BlowTado</span>
-          <span class="skill-pill">Notion</span>
-          <span class="skill-pill">Canva</span>
-          <span class="skill-pill">LinkedIn Strategy</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h4>Infrastructure</h4>
-        <div class="skill-list">
-          <span class="skill-pill">Linux / Ubuntu VPS</span>
-          <span class="skill-pill">Docker</span>
-          <span class="skill-pill">Lovable</span>
-          <span class="skill-pill">SSL / Domain Management</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h4>Customer Success &amp; Advisory</h4>
-        <div class="skill-list">
-          <span class="skill-pill">CS Function Build</span>
-          <span class="skill-pill">Executive Stakeholder Mgmt</span>
-          <span class="skill-pill">ROI Modelling</span>
-          <span class="skill-pill">Playbook Design</span>
-          <span class="skill-pill">Renewal Strategy</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <div class="cta-section" id="contact">
-    <div class="cta-inner">
-      <h2>Ready to Meet Your First AI Employee?</h2>
-      <p>Book a 20-minute strategy call. We'll look at your business, identify the highest-leverage place for AI, and I'll tell you exactly what a build would involve — and what it would replace.</p>
+  <!-- CTA PANEL -->
+  <div class="container">
+    <div class="cta-panel">
+      <h2>Keep exploring</h2>
+      <h3>Want the fuller picture?</h3>
       <div class="cta-actions">
-        <a href="https://ssgadvisory.io" class="btn-cta" target="_blank">See it in action →</a>
-        <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2F_ABY3r3knpo19dFngiJx-IMv-BpzWoOQwWJpx6VSkNz5YQcAMuJWHIX8GIr4gO-LYkrajczt" class="btn-cta-ghost" target="_blank">Ready to book your service →</a>
+        <a href="#selected-work" class="btn btn-primary">See selected work</a>
+        <a href="https://ssgadvisory.io" class="btn btn-ghost" target="_blank">Back to AI Employees</a>
       </div>
+    </div>
+  </div>
+
+  <!-- CLOSING SECTION -->
+  <div class="container">
+    <div class="closing-section">
+      <h2>Final thought</h2>
+      <h3>I believe AI should feel like practical support, not smoke and mirrors.</h3>
+      <p>The best AI integrates into what you're already doing, removes friction, and compounds over time. It doesn't require constant babysitting. It doesn't replace human judgment—it removes distractions so you can focus on what only you can do.</p>
     </div>
   </div>
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2026 Sabrina Sykes-Gelder · <a href="https://ssgadvisory.io" target="_blank">SSG Advisory</a> · Gatineau, Quebec, Canada · <a href="mailto:sabrina@ssgadvisory.io">sabrina@ssgadvisory.io</a></p>
+    <div class="container">
+      <p>2026 Sabrina Sykes-Gelder · <a href="https://ssgadvisory.io" target="_blank">SSG Advisory</a> · Gatineau, QC · <a href="mailto:sabrina@ssgadvisory.io">sabrina@ssgadvisory.io</a></p>
+    </div>
   </footer>
-
 </body>
 </html>
