@@ -946,7 +946,7 @@ section.hero {
   max-width: none !important;
   margin: 0 !important;
 }
-.about-inner { max-width: 1100px; margin: 0 auto; }
+.about-inner { max-width: 1100px; margin: 0 auto !important; }
 .about-intro { margin-bottom: 48px; }
 .about-intro p {
   font-size: 16px; line-height: 1.8; margin-bottom: 18px;
@@ -958,6 +958,10 @@ section.hero {
   grid-template-columns: 1fr 380px !important;
   gap: 64px !important;
   align-items: start !important;
+}
+@media (max-width: 900px) {
+  .about-body { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .about-cards { padding-top: 0; }
 }
 .about-text p { font-size: 16px; line-height: 1.8; margin-bottom: 18px; color: var(--gray-600, #475569); }
 .about-text p:last-child { margin-bottom: 0; }
