@@ -429,11 +429,19 @@
 
     .service-replaces {
       font-size: 12px;
-      color: var(--gray-400);
-      margin-top: 7px;
+      font-weight: 700;
+      color: var(--accent);
+      display: inline-block;
+      padding: 6px 14px;
+      background: var(--accent-light);
+      border-radius: 999px;
+      margin-top: 12px;
     }
 
-    .service-card.featured .service-replaces { color: rgba(255,255,255,0.4); }
+    .service-card.featured .service-replaces {
+      color: var(--navy);
+      background: rgba(255,255,255,0.92);
+    }
 
     /* PROJECTS */
     .projects-grid {
@@ -972,6 +980,64 @@ section.hero {
 
 /* Section divider between hero and about */
 .section-divider { border: none; border-top: 1px solid #eaecf0; margin: 0 48px; }
+/* ══ MOBILE: hero + card responsive fixes ══ */
+@media (max-width: 900px) {
+  section.hero {
+    padding: 100px 20px 40px !important;
+  }
+
+  .hero-top {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    text-align: center;
+  }
+
+  .hero-photo img {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 8vw, 48px) !important;
+  }
+
+  .hero-sub {
+    max-width: 100% !important;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-card {
+    padding: 24px 20px !important;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px !important;
+  }
+
+  .hero-stat {
+    border-right: none !important;
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .hero-stat-num {
+    font-size: 30px !important;
+  }
+
+  .hero-employees {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .section-divider {
+    margin: 0 20px !important;
+  }
+}
 </style></head>
 <body>
 
@@ -1116,35 +1182,31 @@ section.hero {
     <section class="section" id="services">
       <div class="section-label">Services</div>
       <h2 class="section-title">AI Employees for Your Business</h2>
-      <p class="section-desc">I design and deploy AI employees that replace specific human roles in your business — scoped, priced, and built to deliver a measurable return from day one.</p>
+      <p class="section-desc">I design and deploy AI employees that replace specific human roles in your business, scoped and built to deliver a measurable return from day one.</p>
 
       <div class="services-grid">
         <div class="service-card featured">
           <div class="service-icon">📣</div>
           <h3>AI Influencer</h3>
           <p>Consistent LinkedIn content, newsletter, and short-form video — your voice and expertise, without the daily grind. Built and running inside my own business.</p>
-          <div class="service-price">From $37,000 CAD/yr</div>
           <div class="service-replaces">Replaces: content writer + social media manager</div>
         </div>
         <div class="service-card">
           <div class="service-icon">📞</div>
           <h3>AI Sales Rep</h3>
           <p>Inbound lead qualification, objection handling, follow-up, and calendar booking — 24/7, with no human involvement required until the strategy call.</p>
-          <div class="service-price">$41,000–$58,000 CAD/yr</div>
           <div class="service-replaces">Replaces: SDR / appointment setter</div>
         </div>
         <div class="service-card">
           <div class="service-icon">🤝</div>
           <h3>AI Customer Success</h3>
           <p>Client onboarding, check-ins, FAQ responses, and communication touchpoints — keeping clients engaged without consuming your calendar.</p>
-          <div class="service-price">$27,000–$38,000 CAD/yr</div>
           <div class="service-replaces">Complements your CS team to extend reach and scale impact</div>
         </div>
         <div class="service-card">
           <div class="service-icon">🔍</div>
           <h3>AI Audit</h3>
           <p>A 2–3 hour deep dive into your business to identify where AI can eliminate bottlenecks. Full written report with ROI projections. Audit fee credited toward a full build.</p>
-          <div class="service-price">$1,400–$2,100 CAD</div>
           <div class="service-replaces">The starting point for most clients</div>
         </div>
       </div>
